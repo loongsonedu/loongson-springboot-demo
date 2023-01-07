@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8090
 spring:
   datasource:
     driverClassName: com.mysql.jdbc.Driver
@@ -19,7 +19,19 @@ spring:
     
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
-  
+
+ribbon:
+  ReadTimeout: 2000
+  ConnectTimeout: 2000
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka/
+    healthCheck:
+      enabled: true
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    leaseExpirationDurationInSeconds: 30
   
 
 

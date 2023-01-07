@@ -65,4 +65,9 @@ public class UserController {
         userService.editUser(user);
         return "redirect:/user/selectUser";
     }
+    @RequestMapping("/user/deleteUser")
+    public String delete(@Valid Integer id) throws SQLException {
+        userService.deleteUser(id);
+        return "redirect:/user/selectUser";
+    }
 }
